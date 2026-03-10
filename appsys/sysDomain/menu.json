@@ -1,0 +1,17 @@
+{
+  "menu": {
+    "title": "域健康检查",
+    "icon": "el-icon-monitor",
+    "path": "/index/domainHealth",
+    "component": "domainHealth",
+    "parent": "sysAdmin",
+    "sort": 10,
+    "visible": true,
+    "permission": "domain.health.check"
+  },
+  "category": {
+    "name": "系统管理",
+    "icon": "el-icon-setting",
+    "sort": 100
+  }
+}

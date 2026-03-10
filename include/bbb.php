@@ -1,0 +1,499 @@
+<?php
+if($_SERVER['SERVER_PORT']=='30301'){
+	$_HLCPHP["name"]="软域EXCHANGE双因素认证系统V3.0";
+	$_HLCPHP["type"]="aaa";
+	$_HLCPHP["skin"]="aaa";
+	$_HLCPHP["left"]=array(
+		"item1"=>array(
+			'name'=>"首页汇总管理",
+			'path'=>"aaa_main/default.php",
+			'img'=>'include/image/new-tb/shouye.png',
+		),
+		
+		"item2"=>array(
+			'name'=>"登录审计管理",
+			//'path'=>'aaa_acct/default.php',
+			'path'=>'aaa_radlogn_table/default.php',
+			'img'=>'include/image/new-tb/denglu.png',
+			
+			'list'=>array(
+				//'itemsub1'=>array(
+					//'name'=>'邮件网关日志',
+					//'path'=>'aaa_acct/default.php'
+				//),
+				
+				'itemsub3'=>array(
+					'name'=>'登录审计数据管理',
+					'path'=>'aaa_radlogn_table/default.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'会话记账数据管理',
+					'path'=>'aaa_acct_table/default.php'
+				)
+			
+			)
+			
+		),
+		
+		"item3"=>array(
+			'name'=>"操作审计管理",
+			'path'=>"aaa_oper/default.php",
+			'img'=>'include/image/new-tb/caozuo.png',
+			'subtype'=>"0",
+		),
+		
+		"item4"=>array(
+			'name'=>"日志信息管理",
+			'path'=>"log_log/default.php",
+			'img'=>'include/image/new-tb/rizhi.png',
+			'list'=>array(
+				'itemsub1'=>array(
+					'name'=>'详细日志管理',
+					'path'=>'log_log/default.php'
+				),
+				'itemsub2'=>array(
+					'name'=>'日志类型管理',
+					'path'=>'log_log/default_ch.php'
+				),
+				'itemsub3'=>array(
+					'name'=>'日志分析管理',
+					'path'=>'log_log/default_fx.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'备注设备管理',
+					'path'=>'log_log/default_remark.php'
+				),
+				'itemsub6'=>array(
+					'name'=>'丢弃策略管理',
+					'path'=>'log_log/default_drop.php'
+				),
+				'itemsub5'=>array(
+					'name'=>'日志用户管理',
+					'path'=>'log_log/default_user.php'
+				),
+				'itemsub6'=>array(
+					'name'=>'日志发送测试',
+					'path'=>'log_log/logsend.php'
+				),
+				'itemsub7'=>array(
+					'name'=>'日志类别汇总',
+					'path'=>'log_log/default_total.php'
+				),
+				'itemsub8'=>array(
+					'name'=>'日志按月汇总',
+					'path'=>'log_log/default_total_m.php'
+				),
+				
+				'itemsub9'=>array(
+					'name'=>'日志月类汇总',
+					'path'=>'log_log/default_total_m_head.php'
+				)
+				
+			)
+		),
+		
+		"item5"=>array(
+			'name'=>"用户信息管理",
+			'path'=>"aaa_user/default.php", 
+			'img'=>'include/image/new-tb/yonghu.png',
+			
+			
+			'list'=>array(
+				'itemsub1'=>array(
+					'name'=>'用户基础信息',
+					'path'=>'aaa_user/default.php'
+				),
+				'itemsub2'=>array(
+					'name'=>'导入邮箱ID',
+					'path'=>'ex_user_Identity/default.php'
+				),
+				/*'itemsub3'=>array(
+					'name'=>'登录事件列表',
+					'path'=>'aaa_radcheck/default.php'
+				),*/
+				'itemsub4'=>array(
+					'name'=>'mapi认证日志',
+					'path'=>'aaa_radcheck/mapi_auth.php'
+				),
+				'itemsub5'=>array(
+					'name'=>'mapi激活日志',
+					'path'=>'aaa_radcheck/mapi_active.php'
+				),
+				'itemsub6'=>array(
+					'name'=>'OWA认证日志',
+					'path'=>'aaa_radcheck/owa_auth.php'
+				),
+				'itemsub7'=>array(
+					'name'=>'OWA激活日志',
+					'path'=>'aaa_radcheck/owa_active.php'
+				),
+				'itemsub8'=>array(
+					'name'=>'手机认证日志',
+					'path'=>'aaa_radcheck/activesync_auth.php'
+				),
+				'itemsub9'=>array(
+					'name'=>'手机激活日志',
+					'path'=>'aaa_radcheck/activesync_active.php'
+				),
+				'itemsub10'=>array(
+					'name'=>'rpc认证日志',
+					'path'=>'aaa_radcheck/rpc_auth.php'
+				),
+				'itemsub11'=>array(
+					'name'=>'rpc激活日志',
+					'path'=>'aaa_radcheck/rpc_active.php'
+				),
+				'itemsub12'=>array(
+					'name'=>'标准协议认证日志',
+					'path'=>'aaa_radcheck/pop3_auth.php'
+				),
+				'itemsub121'=>array(
+					'name'=>'标准协议异常访问',
+					'path'=>'aaa_radcheck/pop3_auth_error.php'
+
+				),
+				'itemsub13'=>array(
+					'name'=>'标准协议激活日志',
+					'path'=>'aaa_radcheck/pop3_active.php'
+				),
+				'itemsubcount'=>array(
+					'name'=>'最后一次登录',
+					'path'=>'aaa_user_last_login/default.php'
+				),
+				
+				
+				'itemsub100'=>array(
+					'name'=>'用户汇总视图',
+					'path'=>'aaa_user/default_tree.php'
+				),				
+				
+			)
+		),
+		/*
+		"item6"=>array(
+			'name'=>"设备信息管理",
+			'path'=>"aaa_src/default.php",
+			'img'=>'include/image/new-tb/shebei.png',
+			'list'=>array(
+				'itemsub1'=>array(
+					'name'=>'设备列表管理',
+					'path'=>'aaa_src/default.php'
+				),
+				'itemsubcount'=>array(
+					'name'=>'设备统计管理',
+					'path'=>'aaa_count/default.php'
+				),
+				//'itemsub2'=>array(
+				//	'name'=>'连接状态管理',
+				//	'path'=>'aaa_ping/default.php'
+				//),
+				
+				
+				'itemsub5'=>array(
+					'name'=>'认证过滤管理',
+					'path'=>'aaa_limit/default.php',
+					'subtype'=>"0",
+				),
+				'itemsub6'=>array(
+					'name'=>'设备类型管理',
+					'path'=>'aaa_class/default.php'
+				),
+				
+				
+			)
+		),
+		*/
+		/*
+		"itemconfig"=>array(
+			'name'=>"配置备份管理",
+			'path'=>"aaa_config/default.php",
+			'img'=>'include/image/new-tb/oracle.png',
+			'subtype'=>"0",
+			'list'=>array(
+				'itemsub1'=>array(
+					'name'=>'配置备份管理',
+					'path'=>'aaa_config/default.php'
+				),
+				'itemsub2'=>array(
+					'name'=>'配置备份执行',
+					'path'=>'aaa_config/backup.php'
+				),
+				'itemsub3'=>array(
+					'name'=>'备份日志管理',
+					'path'=>'aaa_config/default_log.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'备份方式管理',
+					'path'=>'aaa_cscript/default.php?t=1'
+				),
+				'itemcfgcheck'=>array(
+					'name'=>'配置审核管理',
+					'path'=>'aaa_config/check.php'
+				),
+				'itemcfgy'=>array(
+					'name'=>'跳转配置管理',
+					'path'=>'aaa_configy/default.php'
+				),
+				'itemcfg_diff'=>array(
+					'name'=>'设备配置对比',
+					'path'=>'aaa_config_diff/show_config.php?id=1731&cfg_id=874&file=1'
+				),
+			)
+		),
+		"item7"=>array(
+			'name'=>"批量配置管理",
+			'path'=>"aaa_exec/index.php",
+			'img'=>'include/image/new-tb/panglu.png',
+			'subtype'=>"0",
+			'list'=>array(
+				'itemsub7'=>array(
+					'name'=>'批量配置管理',
+					'path'=>'aaa_exec/index.php'
+				),
+				'itemsub8'=>array(
+					'name'=>'批量配置日志',
+					'path'=>'aaa_exec_log/default_log.php'
+				),
+				'itemsub9'=>array(
+					'name'=>'批量配置脚本',
+					'path'=>'aaa_cscript/default.php?t=0'
+				),
+				'itemsubxf'=>array(
+					'name'=>'配置文件下发',
+					'path'=>'aaa_exec/default_xf.php'
+				),
+				'itemsubxfjb'=>array(
+					'name'=>'设备巡检脚本',
+					'path'=>'aaa_cscript/default.php?t=3'
+				),
+				'itemsub_xunjian'=>array(
+					'name'=>'设备批量巡检',
+					'path'=>'aaa_xunjian/default_xf.php'
+				),
+				'itemsub_report'=>array(
+					'name'=>'设备巡检报告',
+					'path'=>'aaa_xunjian/report.php'
+				),
+				'itemsubtask'=>array(
+					'name'=>'批量任务管理',
+					'path'=>'aaa_cscripttask/default.php'
+				),
+			
+			)
+		),
+		*/
+		"item7"=>array(
+			'name'=>"OWA白名单管理",
+			'path'=>"redis_manage/del_all.php",
+			'img'=>'include/image/new-tb/panglu.png',
+			'list'=>array(
+			/*
+				'itemsub3'=>array(
+					'name'=>'手机用户管理',
+					'path'=>'redis_manage/iuser.php',
+				),
+				'itemsub4'=>array(
+					'name'=>'激活链接管理',
+					'path'=>'redis_manage/icode.php',
+				),
+				'itemsub5'=>array(
+					'name'=>'设备列表',
+					'path'=>'redis_manage/dev_info.php',
+				),
+				'itemsub6'=>array(
+					'name'=>'active信息',
+					'path'=>'redis_manage/active.php',
+				),
+				'itemsub7'=>array(
+					'name'=>'sms信息',
+					'path'=>'redis_manage/sms.php',
+				),
+				*/
+				'itemsub8'=>array(
+					'name'=>'OWA白名单',
+					'path'=>'redis_manage/del_all.php',
+				),
+			)
+		),
+		"item8"=>array(
+			'name'=>"机构信息管理",
+			'path'=>"sys_organ/default.php",
+			'img'=>'include/image/new-tb/jigou.png',
+			'list'=>array(
+				'itemsub3'=>array(
+					'name'=>'下载信息管理',
+					'path'=>'sys_software/default.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'证书设置管理',
+					'path'=>'sys_cert/default.php'
+				),
+			)
+		),
+		
+		"item9"=>array(
+			'name'=>"系统信息管理",
+			'path'=>"sys_user/default.php",
+			'img'=>'include/image/new-tb/xitong.png',
+			'list'=>array(
+				'itemsub1'=>array(
+					'name'=>'系统用户管理',
+					'path'=>'sys_user/default.php'
+				),
+				'itemsub2'=>array(
+					'name'=>'系统服务管理',
+					'path'=>'sys_service/default.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'系统网络设置',
+					'path'=>'sys_network/default.php'
+				),
+				'itemsub5'=>array(
+					'name'=>'系统环境设置',
+					'path'=>'sys_envir/default.php'
+				),
+				'itemsub6'=>array(
+					'name'=>'AD认证设置',
+					'path'=>'aaa_proxy/default.php'
+				),
+				'itemsub7'=>array(
+					'name'=>'系统双机设置',
+					'path'=>'sys_failover/default.php'
+				),
+				'itemsub8'=>array(
+					'name'=>'系统杂项管理',
+					'path'=>'sys_auth/default.php'
+				),
+				'itemsub9'=>array(
+					'name'=>'系统后台管理',
+					'path'=>'sys_init/default.php'
+				),
+				/*
+				'itemsub10'=>array(
+					'name'=>'Exchange-MFA',
+					'path'=>'owa_otp/default.php'
+				),
+				*/
+			)
+		),
+	);
+	
+	if($_HLCPHP['global']['type']=='1'){
+		$_HLCPHP["left"]=array(
+			"item1"=>array(
+				'name'=>"首页汇总",
+				'path'=>"aaa_main/default.php",
+			),
+			
+			"item2"=>array(
+				'name'=>"登录审计",
+				'path'=>"aaa_login/default.php",
+			),
+			
+			"item3"=>array(
+				'name'=>"操作审计",
+				'path'=>"aaa_oper/default.php",
+			)
+		);
+	}else if($_HLCPHP['global']['type']=='2'){
+		$_HLCPHP["left"]=array(
+				'itemsub1'=>array(
+					'name'=>'设备列表',
+					'path'=>'aaa_src/default.php'
+				)
+			);
+	}else if($_HLCPHP['global']['type']=='3'){
+		$_HLCPHP["left"]=array(
+				'itemsub2'=>array(
+					'name'=>'系统服务',
+					'path'=>'sys_service/default.php'
+				),
+				'itemsub4'=>array(
+					'name'=>'系统网络设置',
+					'path'=>'sys_network/default.php'
+				),
+				'itemsub5'=>array(
+					'name'=>'系统环境设置',
+					'path'=>'sys_envir/default.php'
+				),
+				'itemsub6'=>array(
+					'name'=>'系统双机设置',
+					'path'=>'sys_failover/default.php'
+				),
+				'itemsub8'=>array(
+					'name'=>'系统杂项',
+					'path'=>'sys_auth/default.php'
+				),
+				'itemsub10'=>array(
+					'name'=>'系统后台',
+					'path'=>'sys_cron/default.php'
+				)
+			);
+	}else if($_HLCPHP['global']['type']=='4'){
+		$_HLCPHP["left"]=array(
+				'itemsub2'=>array(
+					'name'=>'远程ping管理',
+					'path'=>'aaa_pingy_manager/default.php'
+				)
+			);
+	
+	}
+	
+	
+	
+	
+	
+	$_HLCPHP["service"][]="radius";
+	$_HLCPHP["service"][]="nginx";
+	$_HLCPHP["service"][]="rsyslogd";
+	$_HLCPHP["service"][]="ex_otp";
+	//$_HLCPHP["service"][]="ex_sms";
+	//$_HLCPHP["service"][]="sms_no_active";
+
+	global $mysite;
+	$table_sql="select * from radius.aaa_nas_class order by c_oid";
+	$table_obj=mysql_query($table_sql, $mysite) or die(mysql_error());
+	$table_row=mysql_fetch_assoc($table_obj);
+	$table_num=mysql_num_rows($table_obj); 
+	if($table_num!=0){
+		do{
+			$thisrow['id']=$table_row['class_id'];
+			$thisrow['name']=$table_row['class_name'];
+			$thisrow['enable']=$table_row['class_enable'];
+			$thisrow['default']=$table_row['class_default'];
+			$_HLCPHP["class"]['maps'][$table_row['class_id']]=$table_row['class_name'];
+			$_HLCPHP["class"]['list'][]=$thisrow;
+		}while($table_row=mysql_fetch_assoc($table_obj));
+	}
+	
+	//脚本类型
+	$_HLCPHP['bwtypes'][0]='普通脚本';
+	$_HLCPHP['bwtypes'][1]='备份脚本';
+	$_HLCPHP['bwtypes'][2]='下发脚本';
+	$_HLCPHP['bwtypes'][3]='巡检脚本';
+	$_HLCPHP['bwtypes'][4]='基检脚本';
+
+
+	$table_sql="select * from radius.abc_script where bw_type='1'";
+	$table_obj=mysql_query($table_sql, $mysite) or die(mysql_error());
+	$table_row=mysql_fetch_assoc($table_obj);
+	$table_num=mysql_num_rows($table_obj); 
+	if($table_num!=0){
+		do{
+			$thisrow['id']=$table_row['bw_id'];
+			$thisrow['name']=$table_row['bw_name'];
+			$thisrow['temp']=$table_row['bw_remp'];
+			$thisrow['type']=$table_row['bw_type'];
+			$thisrow['enable']=$table_row['bw_enable'];
+			$_HLCPHP["bpway"]['maps'][$table_row['bw_id']]=$table_row['bw_name'];
+			$_HLCPHP["bpway"]['list'][]=$thisrow;
+		}while($table_row=mysql_fetch_assoc($table_obj));
+	}
+
+	$_HLCPHP["srcorder"][0]='norder,inet_aton(nasname)';
+	$_HLCPHP["srcorder"][1]='norder,shortname';
+	$_HLCPHP["srcorder"][2]='norder,id';
+	
+	
+}
+?>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=11" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xtermObj.js demo</title>
+<link rel="stylesheet" href="xterm.css" />
+<script type="module" src="xterm.js"></script>
+
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div id="terminaldiv" style="width:1200px"></div>
+</body>    
+</html>
+<script>
+var serverPort = "4001";
+var termObj=null;
+var wsStatus=0;
+var websocket=null;
+var dftcols=100;
+var dftrows=30;
+
+setTimeout(()=>{//xtermObj.js里需要点时间初始化
+	startTerm();
+	setTimeout(()=>{//需要term创建好，才能获得宽度
+		var screens = document.getElementsByClassName('xterm-screen');
+		var screenwidth = screens[0].offsetWidth;
+		var divwidth = document.getElementById('terminaldiv').offsetWidth;
+		var newcols = Math.floor((divwidth-20)*dftcols/screenwidth);
+		termObj.resize(newcols,dftrows);
+		dftcols = newcols;
+		startWS();
+	},1);
+},1000);
+
+function startTerm(){
+	termObj = new Terminal({
+		  　　cols: dftcols,
+		  　　rows: dftrows,
+		  　　screenKeys: true,
+		  　　useStyle: true,
+		  　　cursorBlink: true
+	});
+	termObj.open(document.getElementById('terminaldiv'));　　
+	
+	termObj.onData(function(data) {
+		if(wsStatus<3){
+			return;
+		}
+		
+		if(!websocket){
+			termObj.clear();
+			startWS();
+			return;
+		}
+		//console.log(data.charCodeAt());　
+		//term换行输出的是\r　
+		if(data=="\r"){
+			data="\n";
+		}
+		websocket.send(data);
+	});
+	
+	termObj.focus();
+		
+}
+
+function startWS(){
+	wsStatus = 1 ;//第一步
+	termObj.write("connect to server ...\r\n");
+	
+	const parsedURL = new URL(window.location.href);
+    var serverIp = parsedURL.hostname;
+	
+	var wsUrl = "wss://"+serverIp+":"+serverPort;
+	websocket = new WebSocket(wsUrl);
+	websocket.binaryType = "arraybuffer";
+	websocket.onopen = function(evt) {
+		wsStatus = 2;//第二步
+		websocket.send("stty cols "+dftcols+"\n");
+		websocket.send("stty rows "+dftrows+"\n");
+		websocket.send("export TERM=xterm-256color\n");
+		websocket.send("PS1='[\\u@\\h \\W]\\$ '\n");
+		websocket.send("clear\n");
+	}
+
+	websocket.onmessage = function(evt) {//接受到数据　
+		wsStatus = 3;//第三步
+		
+		var data = evt.data;
+		//binaryType=arraybuffer,且php发送的是二进制数据
+		//此时接收的是arraybuffer类型的data
+		
+		//把arraybuffer转为string
+		//var datastr = new TextDecoder('utf-8').decode(data);
+		//console.log("++"+datastr+"===");
+		
+		//把arraybuffer转为Uint8Array
+		data = new Uint8Array(data);
+		
+		//termObj.write 方法默认接受string或 Uint8Array 类型的数据
+		termObj.write(data);
+	}
+
+	websocket.onclose = function(evt) {
+		termObj.write("\r\nSession terminated\r\n");
+		websocket=null;
+		wsStatus=3;
+	}
+
+	websocket.onerror = function(evt) {
+		termObj.write("\r\nwebsocket.onerror\r\n");
+		console.log(evt);
+	}
+
+}
+
+</script>

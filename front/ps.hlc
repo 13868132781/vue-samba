@@ -1,0 +1,30 @@
+一些页面布局注意事项：
+
+@当前页面采用盒子模型：box-sizing: border-box
+
+@div垂直布局，上下margin可能重叠
+
+@当 display: inline-block; 和 overflow: hidden; 同时设置时，可能造成高度异常
+
+@flex布局，，垂直布局时，
+其他项目flex:0 0 30px， 唯一的一个项目flex:1时，该项目数据少时，占据剩余空间，数据多时，撑开外层div。
+外层div设置overflow:auto时，便可整体滚动
+如此便实现了min-height功能
+
+
+
+
+
+vue注意事项：
+父子组件，父组件重新渲染时，子组件也会触发重新渲染
+此时，如果子组件模板dom属性用到了函数，这些函数也会被重新执行
+所有dom属性动态获取，才会建议用computer，而不是用methods
+<div :style="computerStyle" :name="methodsName()">
+当数据变化时，computerStyle和 methodsName 里的函数都会被调用，
+但当数据没变化，而父组件渲染时，computerStyle不会执行，而methodsName会重新执行
+所以要尽量避免在dom元素的属性上用函数，可以提前计算好，再把变量引用到模板上
+
+
+
+
+

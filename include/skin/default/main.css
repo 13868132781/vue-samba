@@ -1,0 +1,288 @@
+@charset "utf-8";
+.main_body{
+background-color:#ffffff;
+padding:10px;
+margin:0px;
+border:0px;
+}
+
+table,td,div{
+	border:0px solid #888;
+}
+
+span,a{
+	border:0px solid #444;	
+}
+
+
+
+.main_tabtable{
+	width:100%;border-collapse:collapse;
+	margin-bottom:5px;
+}
+
+
+.main_tabtable a{
+	text-decoration:none;color:#222222
+}
+.main_tabtable_tabtr{
+
+}
+.main_tabtable_tabtr_lefttd{
+	border-bottom-width:1px ; 
+	width:10px
+}
+
+.main_tabtable_tabtr_righttd{
+	border-bottom-width:1px;
+}
+
+.main_tabtable_tabtr_splittd{
+	width:5px;
+	display:none;
+	border-bottom-width:1px;
+}
+
+
+.main_tabtable_tabtr_gettd{
+	border-right-width:1px ;
+	border-top-width:1px ;
+	border-left-width:1px ;
+	border-bottom:1px solid #fff;
+	width:80px; 
+	background:#fff;
+	height:25px
+}
+
+.main_tabtable_tabtr_ungettd{
+	border-right-width:1px ;
+	border-top-width:1px ;
+	border-left-width:1px ;
+	border-bottom-width:1px ;
+	width:80px; 
+	background:#eeeeee url(image/table/title.gif) repeat-x 0 0;
+	height:25px
+}
+
+
+
+
+
+
+
+
+
+
+.main_listtable{
+	border-width: 1px;
+	width:100%;
+	border-collapse:collapse;
+	border-spacing:0;
+	background:#ffffff;
+}
+
+
+.main_listtable_titletr{
+}
+.main_listtable_titletr td{/*总高度25，有btn时会被撑开为28*/
+	background:#D4D4D4 url(image/table/title.gif) repeat-x 0 0;
+	height:28px;
+	border-bottom-width:1px ;
+	padding-left:5px;
+	padding-right:0px;
+}
+.main_listtable_titletr_divleft{
+	float:left; 
+    width:150px;  
+    height:25px; 
+    line-height:25px;
+
+}
+.main_listtable_titletr_divright{
+   float:right; 
+   width:150px;   
+   height:25px;
+   line-height:25px;   
+   overflow:hidden;
+}
+.main_listtable_titletr_divrightbtn{/*总高度25,但会被撑开为27,内容24,top 2，bottom 1*/
+   float:right;  
+   height:25px;
+   padding-top:2px;
+   padding-bottom:1px;
+   margin-right:10px;
+}
+.main_listtable_titletr_divleftbtn{/*总高度25,但会被撑开为27,内容24,top 2，bottom 1*/
+   float:left;  
+   height:25px;
+   padding-top:2px;
+   padding-bottom:1px;
+   margin-right:10px;
+}
+.main_listtable_titletr_divrightimg{/*已弃，用main_listtable_titletr_divrightbtn*/
+   float:right; 
+   width:100px;   
+   height:25px;
+   padding-top:2px;
+   padding-bottom:1px;
+}
+
+
+
+.main_listtable_headtr{}
+.main_listtable_headtr td{
+	background: #F0F0F0;
+	height:22px;
+	border-left-width:1px;
+	border-top-width:1px;
+	border-right-width:1px;
+	*border-right-width:0px;/*只有IE识别*/
+}
+
+
+.main_listtable_searchtr{}
+.main_listtable_searchtr td{
+	border-left-width:1px;
+	border-top-width:0px;
+	border-right-width:1px;
+	*border-right-width:0px;/*这个只有IE识别*/
+	padding:0px 0px 0px 0px;
+	height:18px;
+	background:#f0f0f0;	
+}
+.main_listtable_searchtr input{
+	margin:0px; padding:0px;width:100%;border:0px
+}
+.main_listtable_searchtr select{
+	margin:0px; padding:0px;width:100%;border:0px
+}
+
+.main_listtable_celltr{
+	background:#FFFFFF;
+}
+
+/* 因为td的colspan的设置过大导致一些边框问题
+IE:用left\top，因为设置right会导致最右边双边框
+其他:用left\top\right,不设置right会导致最右边无边框，设置后会采用td边框色
+	 如果不设置left，会采用table边框色，设置的话，用td边框色
+*/
+.main_listtable_celltr td{
+	border-color:#bbb;
+	border-top-width:1px;
+	border-left-width:1px;
+	border-right-width:1px;
+	*border-right-width:0px;/*只有IE识别*/
+	padding:1px 1px 0px 1px;
+	height:18px;
+	
+	}
+
+
+	
+.main_poptable{
+	width:100%;
+	border-collapse:separate;
+	border-spacing:4px;
+}
+	
+	
+
+
+.main_btn_text{/*总高度24*/
+	white-space:nowrap;
+	
+	border-width: 1px ;
+	background-color:#F0F0F0;
+	background:url(image/button/button.gif) repeat-x 0px 50%;
+	font-weight:normal;
+	display:inline-block;
+	cursor:pointer;
+	vertical-align:middle;
+	color:#000;
+	text-decoration:none;
+	text-align:center;
+	height:16px;
+	line-height:16px;
+	padding:2px;
+	border-radius:3px;
+
+}
+
+body a:hover.main_btn_text
+{
+	background:#e2f2fe url(image/button/hover.gif) repeat-x 0px 50%;
+	border:solid 1px #80a4d0;	         
+}
+
+
+.main_btn_text input{
+	border:0px;background-color:transparent;cursor:pointer;
+}
+
+
+
+
+.main_btn_img{/*总高度24*/
+	white-space:nowrap;
+	
+	border-width: 1px ;
+	background-color:#F0F0F0;
+	background:url(image/button/button.gif) repeat-x 0px 50%;
+	font-weight:normal;
+	display:inline-block;
+	cursor:pointer;
+	vertical-align:middle;
+	color:#000;
+	text-decoration:none;
+	text-align:center;
+	height:16px;
+	line-height:16px;
+	padding:2px;
+	border-radius:3px;
+}
+
+
+
+
+.main_text_note{
+	color:#7B68EE;
+}
+
+.main_div_content{
+	border-width:1px;
+}
+
+
+.button {
+	width: 100%;
+	padding: 10px 20px;
+	font-size: 12px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: white; /* 统一设置文字颜色为白色 */
+}
+
+.button-active-success {
+	background-color: #4CAF50; /* 绿色背景 */
+}
+
+.button-active-success:hover {
+	background-color: #45a049;
+}
+
+.button-waiting-activation {
+	background-color: #808080; /* 灰色背景 */
+}
+
+.button-waiting-activation:hover {
+	background-color: #666666; /* 灰色稍暗的悬停效果 */
+}
+
+.button-activation-rejected {
+	background-color: #f44336; /* 红色背景 */
+}
+
+.button-activation-rejected:hover {
+	background-color: #d32f2f;
+}

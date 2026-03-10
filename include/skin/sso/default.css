@@ -1,0 +1,13 @@
+@charset "utf-8";
+.top_body{background:#444;}
+.left_far_tr_normal td{background:url(image/titlebg.png);}
+.left_far_tr_select td{background:url(image/header.gif) ;}
+.main_tabtable_tabtr_ungettd{background:url(image/titlebg5.png) ;}
+.main_tabtable_tabtr_ungettd{color:#0e017d;}
+.main_listtable_titletr td{background:url(image/titlebg5.png) ;}.pop_table_titletd{background:url(image/titlebg5.png) ;}
+table,td,div{border:0px solid #688f8a;}
+.main_listtable_celltr td{border-color:#b4b0d9;
+}
+.btm_body{background:#444;}
+.login_bg{background:#0500a1;}
+.frame_left{border-color:#444;}

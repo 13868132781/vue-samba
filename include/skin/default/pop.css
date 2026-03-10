@@ -1,0 +1,14 @@
+.pop_table{
+	border-width:1px;
+}
+.pop_table_titletd{
+	border-bottom:1px solid #bbb;
+	padding:3px 5px 3px 5px;
+	color:#222;
+	font-size:14px;
+	background:url(image/table/title.gif) repeat-x 0 0;
+}
+
+.pop_table_btm_div{
+	border-top: 1px solid #DADEE5; text-align: center; background-color:#f0f0f0;padding:2px;
+}

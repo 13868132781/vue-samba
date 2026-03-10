@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="">
+
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.prod.js"></script>-->
+<script src="./front/api/vue/vue3.global.js"></script>
+<!--加载hlc对象-->
+<script src="./front/api/hlc.js" type="module"></script>
+<!--挂载vue App -->
+<script src="./front/index/index.js" type="module"></script>
+
+
+<script src="./front/api/tools/echarts.4.1.0.min.js"></script>
+
+<link rel="stylesheet" href="./front/api/xterm/xterm5.5.0.css">
+<script src="./front/api/xterm/xterm5.5.0.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.addEventListener("change", function (e) {
+        if (e.target && e.target.getAttribute('data-col') === 'mfa') {
+            const el = e.target;
+            const id = el.getAttribute('data-id');
+            const val = el.checked ? "1" : "0";
+
+            if (!confirm("确定修改？")) {
+                el.checked = !el.checked;
+                return;
+            }
+
+            fetch("/update_mfa.php", { // 👈 指向你新建的 PHP 文件
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id: id, mfa: val })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.code === 0) {
+                    alert("✅ 保存成功");
+                    //location.reload();
+                } else {
+                    alert("❌ 保存失败：" + data.msg);
+                    el.checked = !el.checked;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert("🚨 网络错误，请检查控制台");
+                el.checked = !el.checked;
+            });
+        }
+    });
+});
+</script>
+<link rel="stylesheet" href="./front/coms/sdIcon/sdIcon.css">
+</head>
+<body>
+<div id="app"></div>
+
+</body>
+</html>
+<style>
+*{
+	font-size:14px;
+	color:#333;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Chrome, Safari */
+    -ms-box-sizing: border-box; /* IE8及以下 */
+    -o-box-sizing: border-box; /* Opera */
+}
+div{
+	flex-direction: row;
+}
+
+/*滚动条*/
+.myscroll{	
+}
+.myscroll::-webkit-scrollbar{
+	width:8px!important;
+}
+.myscroll::-webkit-scrollbar-thumb{
+	border-radius:4px;
+	background: rgba(0,0,0,0.2);
+}
+.myscroll::-webkit-scrollbar-thumb:window-inactive{
+	background: rgba(200,200,200,0.4);
+}
+
+/*白色滚动条*/
+.myscrollw{	
+}
+.myscrollw::-webkit-scrollbar{
+	width:8px!important;
+}
+.myscrollw::-webkit-scrollbar-thumb{
+	border-radius:4px;
+	background: rgba(255,255,255,0.6);
+}
+.myscrollw::-webkit-scrollbar-thumb:window-inactive{
+	background: rgba(255,255,255,0.4);
+}
+
+
+.myscroll_thin::-webkit-scrollbar{
+	width:5px!important;
+}
+
+
+/*元素淡入淡出*/
+.hlczoom-enter-active,
+.hlczoom-leave-active {
+  transition: all 0.5s ease;
+}
+
+.hlczoom-enter,
+.hlczoom-leave-to {
+  opacity: 0;
+}
+
+
+/*表格单元格边框*/
+.sdGridTable{
+	width:100%;
+	border-collapse:separate!important;
+	border-spacing:1px!important;
+	background-color:#ddd!important;
+}
+.sdGridTable tr{
+	background-color:#fff;
+}
+
+
+/*一直旋转*/
+@keyframes rotation{
+    0%{-webkit-transform:rotate(0deg);}
+    25%{-webkit-transform:rotate(90deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    75%{-webkit-transform:rotate(270deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+.sdRotation{
+	animation: rotation 1s linear infinite;
+}
+
+
+</style>

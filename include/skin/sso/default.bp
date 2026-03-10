@@ -1,0 +1,35 @@
+@charset "utf-8";
+.top_body{
+	padding:6px;
+	background-color:#7B68EE;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#C4C4C4,endColorStr=#8A2BE2);/*IE678*/
+	background: -ms-linear-gradient(top, #C4C4C4,  #8A2BE2);        /* IE 10 */
+	background:-moz-linear-gradient(top,#C4C4C4,#8A2BE2);/*»ðºü*/ 
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#C4C4C4), to(#8A2BE2));/*¹È¸è*/ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#C4C4C4), to(#8A2BE2));      /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, #C4C4C4, #8A2BE2);   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, #C4C4C4, #8A2BE2);  /*Opera 11.10+*/
+ 	
+}
+ 
+
+
+.left_far_tr_select td{
+	background-color:#8A2BE2;
+}
+
+
+
+.btm_body{
+background-color:#8A2BE2;}
+
+
+
+.login_body{
+background-color:#fff;}
+
+.login_bg{
+background-color:#8A2BE2; padding:25px}
+
+
+

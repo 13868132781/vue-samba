@@ -1,0 +1,55 @@
+目前：
+radius:
+	用的还是freeradius，
+	然后所有请求引导到radexec.pl，
+	radexec.pl里执行radexec.php，
+	radexec.php里调用AuthFor
+	
+	freeradius->radexec.pl->radexec.php->AuthFor.php
+	
+	freeradius配置：
+		/mods-enabled/perl:        
+			filename = /var/www/vue/php/aht/AuthFor/radexec.pl
+	
+		/site_enable/default
+			authorize {
+                preprocess #把一些古怪属性转化为标准属性
+                chap #检查chap，如果确定，并设置Auth-Type := CHAP
+                mschap #检查chap，如果确定，并设置Auth-Type := MS-CHAP
+                #suffix #检查后缀，看是否跳入代理，现在也走perl判断处理
+                eap {
+                        ok = return #返回ok，就会阻断该节后面的运行
+                }
+                #expiration #检查过期属性
+                #logintime #登陆时间段检查
+                #sql #查询radcheck和radrply，检查是否属性是否匹配
+                #perl
+
+                update{
+                        control:Auth-Type := sdzdytype
+                }
+			}
+			authenticate {
+                Auth-Type sdzdytype {
+                        perl      
+                }
+
+
+                Auth-Type SD-CHAP {
+                        chap
+                }
+                Auth-Type SD-CHAP+ { #两步认证的第一步
+                        chap
+                        perl
+                }
+			}
+	
+	
+tacacs:
+	程序用的是sdTacacs
+	sdTacacs是golang编写的，在231上的 /root/sdtacacs_miao
+	46上也有两个版本sdtacacs(旧)和sdtacacs_miao。但46系统有点问题，登录不了
+	46上两个目录已经复制到61的root下
+	
+	sdTacacs->tacexec.php->AuthFor.php
+	

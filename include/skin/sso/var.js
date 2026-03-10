@@ -1,0 +1,1 @@
+var skin_theme_color="#0500a1";

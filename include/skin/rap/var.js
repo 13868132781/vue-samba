@@ -1,0 +1,1 @@
+var top_gradient="#171221";var skin_theme_color="#5183ad";

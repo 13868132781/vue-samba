@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*给top的css*/
+.top_body{
+	color:#FFFFFF;
+	padding:0px;
+	background-color:#444;
+	
+}
+
+
+.top_table{
+	
+	height:40px;color:white;width:100%;position:absolute;left:0px;top:0px;z-index:101
+}
+
+.top_logo_td{}
+.top_logo_img{}
+
+
+
+.top_systemname_td{
+	color:white;font-size:18px;font-weight:bolder;
+}
+
+.top_server_td{
+	padding-right:0px;width:70px;
+}
+
+.top_failover_td{
+	padding-right:0px;width:70px;
+}
+
+.top_loginname_td{
+	padding-right:0px;width:70px;
+}
+
+.top_safeout_td{
+	padding-right:0px;width:70px;
+}
+.top_safeout_span{}

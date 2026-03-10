@@ -1,49 +1,55 @@
-# 忽略文件
+# 敏感配置文件
+include/fun/config.php
+app/config.php
+appsys/config.php
+include/fun/mysqli.php
+
+# 日志文件
 *.log
+logs/
+**/logs/*
+
+# 缓存文件
+cache/
+**/cache/*
+*.cache
+
+# 临时文件
+tmp/
+temp/
 *.tmp
 *.swp
 *.swo
 *~
 
-# 配置文件（敏感信息）
-include/fun/config.php
-app/config.php
-appsys/config.php
-*.conf.local
-
-# 上传文件
-uploads/*
-!uploads/.gitkeep
-files/*
-!files/.gitkeep
-
-# 缓存
-cache/*
-!cache/.gitkeep
-temp/*
-!temp/.gitkeep
-
-# Node.js
-node_modules/
-package-lock.json
-dist/
-
-# IDE
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
 # 系统文件
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# 日志
-logs/
-*.log
+# Node modules (前端依赖)
+front/node_modules/
+node_modules/
 
-# 备份
+# Python 虚拟环境
+venv/
+.env
+__pycache__/
+*.pyc
+
+# 数据库文件
+*.sql
+*.db
+*.sqlite
+
+# 备份文件
 *.bak
 *.backup
-*.old
+*_backup/
+
+# 上传文件
+uploads/
+**/uploads/*
+
+# 会话文件
+sessions/
+*.sess

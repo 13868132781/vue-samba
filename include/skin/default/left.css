@@ -1,0 +1,48 @@
+@charset "utf-8";
+.left_body{
+background-color: #fff;}
+
+
+.left_far_tr_normal{
+	cursor:pointer;color:#FFFFFF
+}
+.left_far_tr_normal td{
+	background-color:#ddd; 
+	background-image:url(image/titlebg.png);
+	padding:4px;
+	padding-left:20px;
+	color:#222222;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	vertical-align:middle;
+}
+
+
+.left_far_tr_select{
+	cursor:pointer;color:#FFFFFF
+}
+.left_far_tr_select td{
+	background-color:#7B68EE; padding:4px;padding-left:20px;color:#ffffff;
+	border-top-width:1px;border-bottom-width:1px;vertical-align:middle;
+}
+
+
+
+
+.left_son_tr_normal{
+	cursor:pointer
+}
+.left_son_tr_normal td{
+	padding:4px; padding-left:30px ;color:#222222;
+}
+
+.left_son_tr_select{
+	cursor:pointer
+}
+.left_son_tr_select td{
+	padding:4px; padding-left:30px ;color:#836FFF;
+}
+
+.left_son_div{
+	display:none;border:1px solid #AAA;border-top:0px;margin-left:2px;margin-right:2px;
+}

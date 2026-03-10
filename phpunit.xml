@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         verbose="true">
+    
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+    
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./appsys</directory>
+            <directory suffix=".php">./include/fun</directory>
+            <directory suffix=".php">./just</directory>
+            <exclude>
+                <directory>./vendor</directory>
+                <directory>./node_modules</directory>
+                <directory>./tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_DATABASE" value="vue_samba_test"/>
+        <env name="TEST_BASE_URL" value="https://localhost:5050"/>
+    </php>
+    
+    <logging>
+        <log type="coverage-html" target="tests/coverage/html" lowUpperBound="50" highLowerBound="90"/>
+        <log type="coverage-clover" target="tests/coverage/clover.xml"/>
+        <log type="junit" target="tests/results/junit.xml"/>
+    </logging>
+</phpunit>
